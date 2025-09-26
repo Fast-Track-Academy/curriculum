@@ -1,0 +1,33 @@
+# Development files
+.DS_Store
+*.log
+*.tmp
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+Thumbs.db
+Desktop.ini
+
+# Temporary directories
+/tmp/
+temp/
+
+# Node modules (if using npm tools)
+node_modules/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Build outputs
+dist/
+build/
+
+# Local development
+.env
+.env.local

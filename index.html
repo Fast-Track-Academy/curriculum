@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fast Track Academy - Empowering Young Creators</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h1><i class="fas fa-rocket"></i> Fast Track Academy</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#modules">Modules</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#start" class="btn-primary">Get Started</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Empowering Young Creators Through Project-Based Mastery</h1>
+                    <p class="hero-description">
+                        A revolutionary approach to learning designed for young innovators ready to shape their digital future. 
+                        Learn through <strong>real-world projects</strong>, progress at your own pace, and build skills that matter.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <strong>Self-Paced</strong>
+                                <span>Learning</span>
+                            </div>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-project-diagram"></i>
+                            <div>
+                                <strong>Project-Based</strong>
+                                <span>Mastery</span>
+                            </div>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-tools"></i>
+                            <div>
+                                <strong>Life Design</strong>
+                                <span>Focus</span>
+                            </div>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <strong>Creator</strong>
+                                <span>Empowerment</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-actions">
+                        <a href="#modules" class="btn btn-primary">Explore Modules</a>
+                        <a href="#demo" class="btn btn-secondary">
+                            <i class="fas fa-play"></i> See Demo
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-card">
+                        <div class="code-window">
+                            <div class="code-header">
+                                <div class="code-buttons">
+                                    <span class="red"></span>
+                                    <span class="yellow"></span>
+                                    <span class="green"></span>
+                                </div>
+                                <span class="code-title">my_first_bot.py</span>
+                            </div>
+                            <div class="code-content">
+                                <div class="code-line"><span class="comment"># Your AI assistant</span></div>
+                                <div class="code-line"><span class="keyword">def</span> <span class="function">create_bot</span>():</div>
+                                <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"Building the future!"</span></div>
+                                <div class="typing-cursor">|</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Modules Section -->
+        <section id="modules" class="modules">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Core Learning Modules</h2>
+                    <p>Four comprehensive paths to digital mastery</p>
+                </div>
+                <div class="modules-grid">
+                    <div class="module-card" data-module="ai-bot">
+                        <div class="module-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>AI & Digital Bot Creation</h3>
+                        <p>Learn to create intelligent AI avatars and chatbots that can represent you, automate conversations, and solve real problems.</p>
+                        <div class="module-outcomes">
+                            <div class="outcome">Build AI avatars</div>
+                            <div class="outcome">Machine learning basics</div>
+                            <div class="outcome">Conversational bots</div>
+                            <div class="outcome">AI-powered tools</div>
+                        </div>
+                        <div class="module-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                            <span class="progress-text">Start Learning</span>
+                        </div>
+                        <button class="btn btn-outline module-btn" data-target="ai-bot">
+                            Explore Module <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <div class="module-card" data-module="automation">
+                        <div class="module-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Life Automation & Design</h3>
+                        <p>Transform your daily routines through smart automation. Design systems that handle repetitive tasks and optimize your productivity.</p>
+                        <div class="module-outcomes">
+                            <div class="outcome">Automate daily tasks</div>
+                            <div class="outcome">Productivity systems</div>
+                            <div class="outcome">Smart home solutions</div>
+                            <div class="outcome">Time management tools</div>
+                        </div>
+                        <div class="module-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                            <span class="progress-text">Start Learning</span>
+                        </div>
+                        <button class="btn btn-outline module-btn" data-target="automation">
+                            Explore Module <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <div class="module-card" data-module="content">
+                        <div class="module-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3>Digital Content Creation & Monetization</h3>
+                        <p>Master the art of creating compelling digital content and turn your creativity into income through various monetization methods.</p>
+                        <div class="module-outcomes">
+                            <div class="outcome">Create engaging content</div>
+                            <div class="outcome">Build online audiences</div>
+                            <div class="outcome">Multiple revenue streams</div>
+                            <div class="outcome">Digital marketing</div>
+                        </div>
+                        <div class="module-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                            <span class="progress-text">Start Learning</span>
+                        </div>
+                        <button class="btn btn-outline module-btn" data-target="content">
+                            Explore Module <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <div class="module-card" data-module="learning">
+                        <div class="module-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Self-Paced, Project-Based Learning</h3>
+                        <p>Learn how to learn effectively. Master project management, research skills, and self-assessment techniques for lifelong learning.</p>
+                        <div class="module-outcomes">
+                            <div class="outcome">Learning strategies</div>
+                            <div class="outcome">Project planning</div>
+                            <div class="outcome">Self-assessment skills</div>
+                            <div class="outcome">Personal learning systems</div>
+                        </div>
+                        <div class="module-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                            <span class="progress-text">Start Learning</span>
+                        </div>
+                        <button class="btn btn-outline module-btn" data-target="learning">
+                            Explore Module <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Getting Started Section -->
+        <section id="start" class="getting-started">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Ready to Start Your Journey?</h2>
+                    <p>Follow these simple steps to begin your project-based learning adventure</p>
+                </div>
+                <div class="steps-grid">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Choose Your First Project</h3>
+                        <p>Pick a module that excites you most and aligns with your interests</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Set Your Learning Goals</h3>
+                        <p>Define what you want to achieve and create your personal roadmap</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Build and Create</h3>
+                        <p>Learn through hands-on projects that solve real-world problems</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3>Share and Iterate</h3>
+                        <p>Get feedback from the community and continuously improve your work</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <h3>Master and Move On</h3>
+                        <p>Demonstrate mastery before advancing to more complex challenges</p>
+                    </div>
+                </div>
+                <div class="cta-section">
+                    <h3>Start Building Your Future Today</h3>
+                    <p>Join thousands of young creators who are already shaping the digital world</p>
+                    <a href="#modules" class="btn btn-primary btn-large">
+                        <i class="fas fa-rocket"></i> Launch Your Journey
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Section -->
+        <section id="demo" class="demo-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>See the Platform in Action</h2>
+                    <p>Interactive demos of what you'll build</p>
+                </div>
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <div class="demo-header">
+                            <i class="fas fa-robot"></i>
+                            <h4>AI Chatbot Demo</h4>
+                        </div>
+                        <div class="demo-content">
+                            <div class="chat-interface">
+                                <div class="chat-message bot">
+                                    <div class="message">Hi! I'm an AI bot created by a Fast Track Academy student. How can I help you today?</div>
+                                </div>
+                                <div class="chat-message user">
+                                    <div class="message">Tell me about project-based learning</div>
+                                </div>
+                                <div class="chat-message bot typing">
+                                    <div class="message">
+                                        <div class="typing-indicator">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-card">
+                        <div class="demo-header">
+                            <i class="fas fa-chart-line"></i>
+                            <h4>Automation Dashboard</h4>
+                        </div>
+                        <div class="demo-content">
+                            <div class="dashboard">
+                                <div class="metric">
+                                    <span class="metric-label">Tasks Automated</span>
+                                    <span class="metric-value">247</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Time Saved</span>
+                                    <span class="metric-value">15.3h</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Active Workflows</span>
+                                    <span class="metric-value">12</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Module Details Modal -->
+    <div id="moduleModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle"></h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4><i class="fas fa-rocket"></i> Fast Track Academy</h4>
+                    <p>Empowering young creators through project-based mastery</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Learning Modules</h4>
+                    <ul>
+                        <li><a href="#modules">AI & Bot Creation</a></li>
+                        <li><a href="#modules">Life Automation</a></li>
+                        <li><a href="#modules">Content Creation</a></li>
+                        <li><a href="#modules">Learning Framework</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#about">Math Integration</a></li>
+                        <li><a href="#about">Science Projects</a></li>
+                        <li><a href="#about">Technology Skills</a></li>
+                        <li><a href="#about">Literature & Communication</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Fast Track Academy. Built for young creators, by young creators.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
