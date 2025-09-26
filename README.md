@@ -34,11 +34,36 @@ Learn how to learn effectively. Master project management, research skills, goal
 
 ## Getting Started
 
-1. **Choose Your First Project**: Pick a module that excites you most
-2. **Set Your Learning Goals**: Define what you want to achieve
-3. **Build and Create**: Learn through hands-on projects
-4. **Share and Iterate**: Get feedback and improve your work
-5. **Master and Move On**: Demonstrate mastery before advancing
+**New to Fast Track Academy? Start here:** 📚 **[Complete Getting Started Guide](getting-started-guide.md)**
+
+The guide includes:
+- 24-hour quick start plan
+- Learning profile assessment  
+- Project templates and tracking tools
+- Community connection resources
+- Troubleshooting for common challenges
+
+**Quick Start Options:**
+1. **Complete Beginner**: Follow the [Getting Started Guide](getting-started-guide.md) step-by-step
+2. **Ready to Build**: Jump directly to your chosen [Core Learning Module](#core-learning-modules)
+3. **Want Structure**: Review the [Assessment Framework](assessment-framework.md) to understand how progress is measured
+4. **Need Resources**: Browse the [Resource Library](resource-library.md) for tools and tutorials
+
+## Essential Learning Support
+
+### 📋 Operational Guides
+- **[Getting Started Guide](getting-started-guide.md)** - Your first 24 hours and beyond
+- **[Assessment Framework](assessment-framework.md)** - How progress is measured and recognized
+- **[Resource Library](resource-library.md)** - Curated tools, platforms, and learning materials
+- **[Project Template](project-template.md)** - Structured template for documenting your learning journey
+- **[Community Guidelines](community-guidelines.md)** - How to participate and contribute to our learning community
+- **[Troubleshooting Guide](troubleshooting-guide.md)** - Solutions for common technical and learning challenges
+
+### 🤝 Community and Support
+- **Discord Community**: Join our learner community for collaboration and support
+- **Peer Learning**: Find study partners and project collaborators
+- **Mentorship Program**: Connect with advanced learners and industry professionals
+- **Office Hours**: Weekly community Q&A sessions with curriculum maintainers
 
 ## Supplementary Resources
 
