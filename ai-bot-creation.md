@@ -104,7 +104,7 @@ Your journey is organized into epic quests, each worth XP and unlocking new abil
 **🏆 Quest Rewards**:
 - Your first AI companion bot
 - "Companion Awakener" achievement badge
-- Access to Research Lab (Level 3)
+- Access to Research Lab (Level 3 - 150 XP Required)
 - New skill unlocked: Basic AI Conversation Design
 
 **📜 Quest Journal Entry**: 
@@ -127,7 +127,7 @@ Your journey is organized into epic quests, each worth XP and unlocking new abil
 **🏆 Quest Rewards**:
 - Your personal AI writing avatar
 - "Digital Twin Master" achievement badge  
-- Access to Bot Builder Workshop (Level 5)
+- Access to Bot Builder Workshop (Level 5 - 300 XP Required)
 - New skill unlocked: Personality Modeling Magic
 
 **📜 Quest Journal Entry**:
@@ -150,7 +150,7 @@ Your journey is organized into epic quests, each worth XP and unlocking new abil
 **🏆 Quest Rewards**:
 - Your ultimate AI life assistant
 - "Life Optimizer" achievement badge
-- Access to Innovation Studio (Level 8)  
+- Access to Innovation Studio (Level 8 - 600 XP Required)  
 - New skill unlocked: Advanced System Integration
 
 **📜 Quest Journal Entry**:
@@ -173,7 +173,7 @@ Your journey is organized into epic quests, each worth XP and unlocking new abil
 **🏆 Quest Rewards**:
 - Your educational AI creator bot
 - "Wisdom Sharer" legendary achievement badge
-- Access to Hall of Fame (Level 10)
+- Access to Hall of Fame (Level 10 - 1000 XP Required)
 - New skill unlocked: Educational AI Mastery
 - Mentor status in Bot Academy
 
@@ -186,7 +186,8 @@ Your journey is organized into epic quests, each worth XP and unlocking new abil
 
 ### Level Progression Chart:
 - **Level 1**: Novice Creator (0-99 XP) - Access to Central Hub
-- **Level 3**: Research Apprentice (100-299 XP) - Unlock Research Lab  
+- **Level 2**: Academy Student (100-149 XP) - Basic progression
+- **Level 3**: Research Apprentice (150-299 XP) - Unlock Research Lab  
 - **Level 5**: Bot Builder (300-599 XP) - Unlock Bot Builder Workshop
 - **Level 8**: Innovation Master (600-999 XP) - Unlock Innovation Studio
 - **Level 10**: Legendary Creator (1000+ XP) - Unlock Hall of Fame
