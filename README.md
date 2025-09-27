@@ -34,9 +34,12 @@ Learn how to learn effectively. Master project management, research skills, goal
 
 ## Getting Started
 
+**🏫 NEW: [Virtual Classroom Dashboard](virtual-classroom.html) - Your personalized learning command center!**
+
 **New to Fast Track Academy? Start here:** 📚 **[Complete Getting Started Guide](getting-started-guide.md)**
 
 The guide includes:
+- **Virtual Classroom Onboarding** - Experience gamified learning immediately
 - 24-hour quick start plan
 - Learning profile assessment  
 - Project templates and tracking tools
@@ -44,10 +47,11 @@ The guide includes:
 - Troubleshooting for common challenges
 
 **Quick Start Options:**
-1. **Complete Beginner**: Follow the [Getting Started Guide](getting-started-guide.md) step-by-step
-2. **Ready to Build**: Jump directly to your chosen [Core Learning Module](#core-learning-modules)
-3. **Want Structure**: Review the [Assessment Framework](assessment-framework.md) to understand how progress is measured
-4. **Need Resources**: Browse the [Resource Library](resource-library.md) for tools and tutorials
+1. **Experience First**: Launch the [Virtual Classroom Dashboard](virtual-classroom.html) to see the full experience
+2. **Complete Beginner**: Follow the [Getting Started Guide](getting-started-guide.md) step-by-step
+3. **Ready to Build**: Jump directly to your chosen [Core Learning Module](#core-learning-modules)
+4. **Want Structure**: Review the [Assessment Framework](assessment-framework.md) to understand how progress is measured
+5. **Need Resources**: Browse the [Resource Library](resource-library.md) for tools and tutorials
 
 ## Essential Learning Support
 

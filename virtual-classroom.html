@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fast Track Academy - Virtual Classroom Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .dashboard-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .dashboard-header h1 {
+            font-size: 2.5rem;
+            color: #4c51bf;
+            margin-bottom: 10px;
+        }
+
+        .dashboard-header p {
+            font-size: 1.1rem;
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+
+        /* Student Profile */
+        .student-profile {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            display: inline-block;
+        }
+
+        .profile-stats {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .stat-item {
+            text-align: center;
+            color: white;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Learning Modules Grid */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .module-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .module-card.featured {
+            border: 3px solid #ff6b6b;
+            background: linear-gradient(135deg, #fff 0%, #fff5f5 100%);
+        }
+
+        .module-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .module-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+
+        .module-description {
+            color: #4a5568;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .module-progress {
+            background: #e2e8f0;
+            border-radius: 10px;
+            height: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4c51bf, #667eea);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+
+        .progress-text {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+
+        .module-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .module-btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #4c51bf, #667eea);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(76, 81, 191, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(76, 81, 191, 0.1);
+            color: #4c51bf;
+            border: 1px solid rgba(76, 81, 191, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(76, 81, 191, 0.2);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #ff6b6b;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        .quick-actions h3 {
+            color: #2d3748;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .action-card {
+            padding: 20px;
+            background: #f7fafc;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            color: #4a5568;
+            transition: all 0.3s ease;
+        }
+
+        .action-card:hover {
+            background: #edf2f7;
+            transform: translateY(-2px);
+        }
+
+        .action-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .dashboard-header h1 {
+                font-size: 2rem;
+            }
+
+            .profile-stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .module-buttons {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <h1>🚀 Fast Track Academy Virtual Classroom</h1>
+            <p>Your personalized learning dashboard - Master skills through gamified, project-based learning</p>
+            
+            <div class="student-profile">
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <span class="stat-value" id="total-xp">0</span>
+                        <span class="stat-label">Total XP</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="overall-level">1</span>
+                        <span class="stat-label">Overall Level</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="modules-started">0</span>
+                        <span class="stat-label">Modules Started</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="projects-completed">0</span>
+                        <span class="stat-label">Projects Complete</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Learning Modules -->
+        <div class="modules-grid">
+            <!-- AI Bot Academy -->
+            <div class="module-card featured">
+                <div class="featured-badge">🔥 Interactive Classroom</div>
+                <div class="module-icon">🤖</div>
+                <h3 class="module-title">AI & Digital Bot Creation</h3>
+                <p class="module-description">
+                    Enter the fully interactive Bot Academy! Complete quests, earn XP, unlock areas, and master AI through gamified learning.
+                </p>
+                <div class="module-progress">
+                    <div class="progress-fill" style="width: 15%"></div>
+                </div>
+                <p class="progress-text">Progress: Getting Started (Character Created)</p>
+                <div class="module-buttons">
+                    <a href="bot-academy-classroom.html" class="module-btn btn-primary">
+                        🎮 Launch Interactive Classroom
+                    </a>
+                    <a href="http://localhost:3002" class="module-btn btn-secondary">
+                        🛠️ Avatar Builder Tool
+                    </a>
+                    <a href="ai-bot-creation.md" class="module-btn btn-secondary">
+                        📚 Study Guide
+                    </a>
+                </div>
+            </div>
+
+            <!-- Life Automation -->
+            <div class="module-card">
+                <div class="module-icon">🔧</div>
+                <h3 class="module-title">Life Automation & Design</h3>
+                <p class="module-description">
+                    Transform your daily routines through smart automation. Learn to design systems that handle repetitive tasks and optimize productivity.
+                </p>
+                <div class="module-progress">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+                <p class="progress-text">Progress: Not Started</p>
+                <div class="module-buttons">
+                    <a href="life-automation-design.md" class="module-btn btn-primary">
+                        🚀 Start Learning
+                    </a>
+                    <a href="#" class="module-btn btn-secondary" onclick="alert('Virtual classroom for this module coming soon!')">
+                        🎮 Classroom (Soon)
+                    </a>
+                </div>
+            </div>
+
+            <!-- Content Creation -->
+            <div class="module-card">
+                <div class="module-icon">🎨</div>
+                <h3 class="module-title">Digital Content & Monetization</h3>
+                <p class="module-description">
+                    Master the art of creating compelling digital content and turn your creativity into income through various monetization strategies.
+                </p>
+                <div class="module-progress">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+                <p class="progress-text">Progress: Not Started</p>
+                <div class="module-buttons">
+                    <a href="digital-content-monetization.md" class="module-btn btn-primary">
+                        🚀 Start Learning
+                    </a>
+                    <a href="#" class="module-btn btn-secondary" onclick="alert('Virtual classroom for this module coming soon!')">
+                        🎮 Classroom (Soon)
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project-Based Learning -->
+            <div class="module-card">
+                <div class="module-icon">📚</div>
+                <h3 class="module-title">Meta-Learning Framework</h3>
+                <p class="module-description">
+                    Learn how to learn effectively. Master project management, research skills, and self-assessment techniques for lifelong learning.
+                </p>
+                <div class="module-progress">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+                <p class="progress-text">Progress: Not Started</p>
+                <div class="module-buttons">
+                    <a href="project-based-learning.md" class="module-btn btn-primary">
+                        🚀 Start Learning
+                    </a>
+                    <a href="assessment-framework.md" class="module-btn btn-secondary">
+                        📊 Assessment Guide
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+            <h3>🚀 Quick Actions & Resources</h3>
+            <div class="actions-grid">
+                <a href="getting-started-guide.md" class="action-card">
+                    <span class="action-icon">📖</span>
+                    <strong>Getting Started Guide</strong>
+                </a>
+                <a href="resource-library.md" class="action-card">
+                    <span class="action-icon">📚</span>
+                    <strong>Resource Library</strong>
+                </a>
+                <a href="community-guidelines.md" class="action-card">
+                    <span class="action-icon">👥</span>
+                    <strong>Join Community</strong>
+                </a>
+                <a href="troubleshooting-guide.md" class="action-card">
+                    <span class="action-icon">🔧</span>
+                    <strong>Troubleshooting</strong>
+                </a>
+                <a href="project-template.md" class="action-card">
+                    <span class="action-icon">📋</span>
+                    <strong>Project Template</strong>
+                </a>
+                <a href="assessment-framework.md" class="action-card">
+                    <span class="action-icon">🏆</span>
+                    <strong>Track Progress</strong>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load progress from Bot Academy if it exists
+        function loadDashboardData() {
+            const botAcademyState = localStorage.getItem('botAcademyState');
+            
+            if (botAcademyState) {
+                const gameState = JSON.parse(botAcademyState);
+                document.getElementById('total-xp').textContent = gameState.playerXP || 0;
+                document.getElementById('overall-level').textContent = gameState.playerLevel || 1;
+                
+                if (gameState.characterCreated) {
+                    document.getElementById('modules-started').textContent = '1';
+                }
+                
+                if (gameState.completedQuests && gameState.completedQuests.length > 0) {
+                    document.getElementById('projects-completed').textContent = gameState.completedQuests.length;
+                }
+            }
+        }
+
+        // Initialize dashboard
+        window.onload = function() {
+            loadDashboardData();
+            
+            // Refresh data every 5 seconds in case user switches between tabs
+            setInterval(loadDashboardData, 5000);
+        };
+    </script>
+</body>
+</html>

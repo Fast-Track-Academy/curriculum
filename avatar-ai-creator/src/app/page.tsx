@@ -44,6 +44,14 @@ export default function Home() {
       <footer className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="text-center text-sm text-gray-500 dark:text-gray-400">
+            <div className="mb-4">
+              <a 
+                href="http://localhost:8000/virtual-classroom.html"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                🏫 Return to Virtual Classroom
+              </a>
+            </div>
             <p>Built with Next.js for Fast Track Academy&apos;s AI & Digital Bot Creation curriculum</p>
             <p className="mt-1">
               Learn more at{' '}
