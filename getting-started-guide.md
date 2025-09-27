@@ -4,7 +4,22 @@
 
 Welcome to Fast Track Academy! This guide will get you started immediately with concrete actions you can take today.
 
-### Step 1: Complete Your Learning Profile (15 minutes)
+### Step 1: Enter the Virtual Classroom (10 minutes) 🚀
+
+**🏫 [Launch Virtual Classroom Dashboard](virtual-classroom.html)**
+
+Start your journey in our gamified learning environment:
+
+1. **Explore the Dashboard**: See all available learning modules and your progress tracking
+2. **Try the AI Bot Academy**: Click "🎮 Launch Interactive Classroom" to experience our fully interactive learning environment
+3. **Create Your Character**: Choose a learning persona (Scientist, Creator, Engineer, or Explorer) 
+4. **Complete Your First Quest**: Get familiar with the XP and badge system
+
+The virtual classroom makes learning feel like an adventure game while building real skills!
+
+---
+
+### Step 2: Complete Your Learning Profile (15 minutes)
 
 **Answer these questions to personalize your learning path:**
 
@@ -31,7 +46,7 @@ Welcome to Fast Track Academy! This guide will get you started immediately with 
    - [ ] Start making money from my skills
    - [ ] Become more organized and productive
 
-### Step 2: Set Up Your Learning Environment (30 minutes)
+### Step 3: Set Up Your Learning Environment (30 minutes)
 
 **Create Your Digital Workspace:**
 
