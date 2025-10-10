@@ -1,9 +1,847 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Virtual Classroom</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Classroom Revolution - Fast Track Academy</title>
+    <meta name="description" content="Revolutionary virtual classroom breaking free from traditional systems. Game-like learning with AI companions, interactive zones, and community collaboration.">
+    <style>
+        /* Modern CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --accent-color: #f093fb;
+            --success-color: #4ade80;
+            --warning-color: #fbbf24;
+            --danger-color: #ef4444;
+            --dark-bg: #1a1a2e;
+            --card-bg: #16213e;
+            --text-light: #eaeaea;
+            --text-dark: #0f3460;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-light);
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--card-bg) 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(22, 33, 62, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .user-stats {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Dashboard Grid */
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .dashboard-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 48px rgba(102, 126, 234, 0.4);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .card-description {
+            color: var(--text-light);
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+
+        .card-features {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .card-features li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .card-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+        }
+
+        /* Learning Zones Section */
+        .zones-section {
+            margin-bottom: 3rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .zones-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .zone-card {
+            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(102, 126, 234, 0.1) 100%);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .zone-card:hover {
+            border-color: var(--primary-color);
+            transform: scale(1.02);
+        }
+
+        .zone-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .zone-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .zone-subtitle {
+            font-size: 1rem;
+            color: var(--text-light);
+            opacity: 0.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .zone-features {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .feature-item {
+            background: rgba(102, 126, 234, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .feature-item strong {
+            color: var(--accent-color);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Community Section */
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .community-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(240, 147, 251, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .community-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+            box-shadow: 0 12px 48px rgba(240, 147, 251, 0.3);
+        }
+
+        /* Action Buttons */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .progress-bar {
+            background: rgba(102, 126, 234, 0.2);
+            border-radius: 10px;
+            height: 30px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            transition: width 0.3s ease;
+        }
+
+        /* Achievements */
+        .achievements {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .achievement-badge {
+            background: var(--card-bg);
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .achievement-badge:hover {
+            border-color: var(--success-color);
+            transform: scale(1.05);
+        }
+
+        .achievement-badge.locked {
+            opacity: 0.4;
+        }
+
+        .badge-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--card-bg);
+            border-top: 2px solid var(--primary-color);
+            margin-top: 4rem;
+            padding: 2rem 0;
+        }
+
+        .footer-content {
+            text-align: center;
+            color: var(--text-light);
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .user-stats {
+                gap: 1rem;
+            }
+
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            .zones-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .community-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to the Virtual Classroom</h1>
-    <p>This is a platform for online learning and teaching.</p>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">🚀 Fast Track Academy</a>
+                <div class="user-stats">
+                    <div class="stat-item">
+                        <div class="stat-value" id="xp-display">0</div>
+                        <div class="stat-label">XP</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="level-display">1</div>
+                        <div class="stat-label">Level</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="streak-display">0</div>
+                        <div class="stat-label">Day Streak</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>🎮 Virtual Classroom Revolution</h1>
+            <p>Welcome to your revolutionary virtual classroom! This learning environment breaks free from traditional systems that prepare students for the 40-hour workweek grind.</p>
+        </div>
+    </section>
+
+    <!-- Main Dashboard -->
+    <main class="container">
+        <section class="dashboard">
+            <!-- Game-Like Interface -->
+            <div class="dashboard-card">
+                <div class="card-icon">🎮</div>
+                <h3 class="card-title">Game-Like Interface</h3>
+                <p class="card-description">Transform your learning journey into an engaging adventure</p>
+                <ul class="card-features">
+                    <li>Personalized avatar creation</li>
+                    <li>Experience points for completed learning paths</li>
+                    <li>Achievement badges for mastered concepts</li>
+                    <li>Learning quests tailored to your interests</li>
+                </ul>
+                <div class="action-buttons">
+                    <a href="avatar-ai-creator/index.html" class="btn btn-primary">Create Avatar</a>
+                </div>
+            </div>
+
+            <!-- AI Learning Companions -->
+            <div class="dashboard-card">
+                <div class="card-icon">🤖</div>
+                <h3 class="card-title">AI Learning Companions</h3>
+                <p class="card-description">Your personal AI study team, available 24/7</p>
+                <ul class="card-features">
+                    <li>Create AI clones to practice concepts with</li>
+                    <li>Virtual study buddies that adapt to your style</li>
+                    <li>AI tutors available for questions anytime</li>
+                    <li>Simulate conversations with historical figures</li>
+                </ul>
+                <div class="action-buttons">
+                    <a href="bot-academy-classroom.html" class="btn btn-primary">Build AI Companion</a>
+                    <a href="ai-bot-creation.md" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Your Progress -->
+            <div class="dashboard-card">
+                <div class="card-icon">📊</div>
+                <h3 class="card-title">Your Progress</h3>
+                <p class="card-description">Track your mastery journey</p>
+                <div class="progress-container">
+                    <div>Current Level Progress</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-bar" style="width: 35%;">35%</div>
+                    </div>
+                </div>
+                <div class="achievements">
+                    <div class="achievement-badge">
+                        <div class="badge-icon">🏆</div>
+                        <div class="badge-name">First Quest</div>
+                    </div>
+                    <div class="achievement-badge">
+                        <div class="badge-icon">🎯</div>
+                        <div class="badge-name">Skill Master</div>
+                    </div>
+                    <div class="achievement-badge locked">
+                        <div class="badge-icon">🌟</div>
+                        <div class="badge-name">Legendary</div>
+                    </div>
+                    <div class="achievement-badge locked">
+                        <div class="badge-icon">👑</div>
+                        <div class="badge-name">Champion</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learning Zones -->
+        <section class="zones-section">
+            <div class="section-header">
+                <h2>🌟 Learning Zones</h2>
+                <p>Explore immersive environments designed for mastery</p>
+            </div>
+
+            <div class="zones-grid">
+                <!-- Exploration Hub -->
+                <div class="zone-card">
+                    <span class="zone-icon">🌐</span>
+                    <h3 class="zone-title">Exploration Hub</h3>
+                    <p class="zone-subtitle">Discover new worlds of knowledge</p>
+                    <div class="zone-features">
+                        <div class="feature-item">
+                            <strong>Interactive 3D Environments</strong>
+                            Explore subjects through immersive 3D spaces
+                        </div>
+                        <div class="feature-item">
+                            <strong>Virtual Field Trips</strong>
+                            Visit historical sites, ecosystems, or space
+                        </div>
+                        <div class="feature-item">
+                            <strong>Hands-on Laboratories</strong>
+                            Conduct safe experiments in virtual labs
+                        </div>
+                        <div class="feature-item">
+                            <strong>Collaborative Building Spaces</strong>
+                            Work together on creative projects
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <a href="#exploration" class="btn btn-primary">Start Exploring</a>
+                    </div>
+                </div>
+
+                <!-- Knowledge Forge -->
+                <div class="zone-card">
+                    <span class="zone-icon">🧠</span>
+                    <h3 class="zone-title">Knowledge Forge</h3>
+                    <p class="zone-subtitle">Build and strengthen your skills</p>
+                    <div class="zone-features">
+                        <div class="feature-item">
+                            <strong>Skill Trees</strong>
+                            Visualize and track your learning progression
+                        </div>
+                        <div class="feature-item">
+                            <strong>Customizable Learning Paths</strong>
+                            Design paths aligned with your personal goals
+                        </div>
+                        <div class="feature-item">
+                            <strong>Real-time Feedback</strong>
+                            Get instant insights on your progress
+                        </div>
+                        <div class="feature-item">
+                            <strong>Adaptive Challenges</strong>
+                            Face challenges that grow with your abilities
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <a href="project-based-learning.md" class="btn btn-primary">Build Skills</a>
+                    </div>
+                </div>
+
+                <!-- Challenge Arena -->
+                <div class="zone-card">
+                    <span class="zone-icon">🏆</span>
+                    <h3 class="zone-title">Challenge Arena</h3>
+                    <p class="zone-subtitle">Test and showcase your mastery</p>
+                    <div class="zone-features">
+                        <div class="feature-item">
+                            <strong>Compete or Collaborate</strong>
+                            Challenge others or work together on goals
+                        </div>
+                        <div class="feature-item">
+                            <strong>Real-World Problems</strong>
+                            Solve authentic challenges in simulated environments
+                        </div>
+                        <div class="feature-item">
+                            <strong>Group Quests</strong>
+                            Team up for quests requiring diverse skills
+                        </div>
+                        <div class="feature-item">
+                            <strong>Mastery Tournaments</strong>
+                            Showcase your expertise in competitions
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <a href="#challenges" class="btn btn-primary">Enter Arena</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Features -->
+        <section class="zones-section">
+            <div class="section-header">
+                <h2>🤝 Community Features</h2>
+                <p>Connect, collaborate, and create together</p>
+            </div>
+
+            <div class="community-grid">
+                <!-- Collaboration Commons -->
+                <div class="community-card">
+                    <div class="card-icon">🤝</div>
+                    <h3 class="card-title">Collaboration Commons</h3>
+                    <p class="card-description">Build your learning community</p>
+                    <ul class="card-features">
+                        <li>Form guilds with like-minded learners</li>
+                        <li>Share resources and discoveries</li>
+                        <li>Peer teaching opportunities</li>
+                        <li>Community-created content library</li>
+                    </ul>
+                    <div class="action-buttons">
+                        <a href="community-guidelines.md" class="btn btn-primary">Join Community</a>
+                    </div>
+                </div>
+
+                <!-- Innovation Workshop -->
+                <div class="community-card">
+                    <div class="card-icon">🚀</div>
+                    <h3 class="card-title">Innovation Workshop</h3>
+                    <p class="card-description">Create and share your innovations</p>
+                    <ul class="card-features">
+                        <li>Create and share your own learning modules</li>
+                        <li>Design challenges for others to solve</li>
+                        <li>Prototype solutions to real problems</li>
+                        <li>Connect with mentors in various fields</li>
+                    </ul>
+                    <div class="action-buttons">
+                        <a href="project-template.md" class="btn btn-primary">Start Creating</a>
+                    </div>
+                </div>
+
+                <!-- Core Curriculum Access -->
+                <div class="community-card">
+                    <div class="card-icon">📚</div>
+                    <h3 class="card-title">Core Curriculum</h3>
+                    <p class="card-description">Access all learning modules</p>
+                    <ul class="card-features">
+                        <li>AI & Digital Bot Creation</li>
+                        <li>Life Automation & Design</li>
+                        <li>Digital Content & Monetization</li>
+                        <li>Self-Paced Learning Framework</li>
+                    </ul>
+                    <div class="action-buttons">
+                        <a href="README.md" class="btn btn-primary">View Curriculum</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>🌟 Built with Next.js for Fast Track Academy's Revolutionary Learning System</p>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="README.md">Curriculum</a>
+                    <a href="getting-started-guide.md">Get Started</a>
+                    <a href="community-guidelines.md">Community</a>
+                    <a href="resource-library.md">Resources</a>
+                    <a href="https://github.com/Fast-Track-Academy/curriculum" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LocalStorage & Gamification Script -->
+    <script>
+        // Initialize user data from localStorage
+        function initializeUserData() {
+            const xp = localStorage.getItem('XP') || '0';
+            const level = localStorage.getItem('Level') || '1';
+            const streak = localStorage.getItem('Streak') || '0';
+            
+            document.getElementById('xp-display').textContent = xp;
+            document.getElementById('level-display').textContent = level;
+            document.getElementById('streak-display').textContent = streak;
+            
+            // Calculate progress to next level
+            const currentXP = parseInt(xp);
+            const currentLevel = parseInt(level);
+            const xpForNextLevel = currentLevel * 1000; // 1000 XP per level
+            const progress = Math.min((currentXP % 1000) / 10, 100); // Progress percentage
+            
+            const progressBar = document.getElementById('progress-bar');
+            progressBar.style.width = progress + '%';
+            progressBar.textContent = Math.round(progress) + '%';
+        }
+
+        // Award XP for visiting the virtual classroom
+        function awardVisitXP() {
+            const lastVisit = localStorage.getItem('lastVirtualClassroomVisit');
+            const today = new Date().toDateString();
+            
+            if (lastVisit !== today) {
+                const currentXP = parseInt(localStorage.getItem('XP') || '0');
+                const newXP = currentXP + 50; // Award 50 XP for daily visit
+                localStorage.setItem('XP', newXP);
+                localStorage.setItem('lastVirtualClassroomVisit', today);
+                
+                // Update streak
+                const lastVisitDate = lastVisit ? new Date(lastVisit) : null;
+                const todayDate = new Date(today);
+                
+                if (lastVisitDate) {
+                    const dayDiff = Math.floor((todayDate - lastVisitDate) / (1000 * 60 * 60 * 24));
+                    if (dayDiff === 1) {
+                        const currentStreak = parseInt(localStorage.getItem('Streak') || '0');
+                        localStorage.setItem('Streak', currentStreak + 1);
+                    } else if (dayDiff > 1) {
+                        localStorage.setItem('Streak', '1');
+                    }
+                } else {
+                    localStorage.setItem('Streak', '1');
+                }
+                
+                // Check for level up
+                const currentLevel = parseInt(localStorage.getItem('Level') || '1');
+                const xpForNextLevel = currentLevel * 1000;
+                if (newXP >= xpForNextLevel) {
+                    localStorage.setItem('Level', currentLevel + 1);
+                    showLevelUpNotification(currentLevel + 1);
+                }
+                
+                initializeUserData();
+            }
+        }
+
+        // Show level up notification
+        function showLevelUpNotification(newLevel) {
+            // Create a simple notification
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+                color: white;
+                padding: 1.5rem 2rem;
+                border-radius: 12px;
+                box-shadow: 0 10px 40px rgba(102, 126, 234, 0.5);
+                z-index: 10000;
+                animation: slideIn 0.5s ease;
+                font-weight: bold;
+            `;
+            notification.innerHTML = `
+                <div style="font-size: 2rem;">🎉</div>
+                <div>Level Up!</div>
+                <div>You reached Level ${newLevel}</div>
+            `;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.5s ease';
+                setTimeout(() => notification.remove(), 500);
+            }, 3000);
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeUserData();
+            awardVisitXP();
+        });
+
+        // Add CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            @keyframes slideOut {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>
