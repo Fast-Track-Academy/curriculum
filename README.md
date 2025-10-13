@@ -36,6 +36,16 @@ Learn how to learn effectively. Master project management, research skills, goal
 
 **New to Fast Track Academy? Start here:** 📚 **[Complete Getting Started Guide](getting-started-guide.md)**
 
+### 🎮 Virtual Classroom Revolution
+Experience our revolutionary gamified learning environment at **[Virtual Classroom](virtual-classroom.html)**
+
+Features:
+- **Game-Like Interface**: Create avatars, earn XP, unlock achievement badges
+- **AI Learning Companions**: 24/7 AI study buddies that adapt to your learning style
+- **Interactive Learning Zones**: Exploration Hub, Knowledge Forge, Challenge Arena
+- **Community Features**: Collaboration Commons and Innovation Workshop
+- **Quest-Based Learning**: Complete missions to earn rewards and level up
+
 The guide includes:
 - 24-hour quick start plan
 - Learning profile assessment  
