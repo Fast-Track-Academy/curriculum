@@ -1,4 +1,4 @@
-# Getting Started Guide - Fast Track Academy
+# Getting Started Guide
 
 ## Your First 24 Hours
 
@@ -293,3 +293,4 @@ What changes will I make to my approach?
 ---
 
 *"The best time to plant a tree was 20 years ago. The second best time is now. Your learning journey starts with your very next action."*
+A guide to help you get started with the curriculum. Full content is coming soon.
