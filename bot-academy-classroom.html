@@ -396,7 +396,17 @@
     <div class="classroom-container">
         <!-- Header with Player Stats -->
         <header class="academy-header">
-            <div class="academy-title">🤖 AI Bot Academy</div>
+            <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+                <div class="academy-title">🤖 AI Bot Academy</div>
+                <div style="display: flex; gap: 10px;">
+                    <a href="virtual-classroom.html" style="padding: 8px 16px; background: rgba(76, 81, 191, 0.1); color: #4c51bf; border: 1px solid rgba(76, 81, 191, 0.3); border-radius: 6px; text-decoration: none; font-size: 0.9rem; font-weight: 600;">
+                        🏫 Dashboard
+                    </a>
+                    <a href="http://localhost:3002" style="padding: 8px 16px; background: rgba(76, 81, 191, 0.1); color: #4c51bf; border: 1px solid rgba(76, 81, 191, 0.3); border-radius: 6px; text-decoration: none; font-size: 0.9rem; font-weight: 600;">
+                        🛠️ Builder Tool
+                    </a>
+                </div>
+            </div>
             <div class="player-stats">
                 <div class="stat-card">
                     <div class="stat-value" id="player-xp">0</div>
@@ -617,125 +627,19 @@
         </div>
     </div>
 
+    <title>Bot Academy Classroom</title>
     <script>
-        // Game State Management
-        let gameState = {
-            playerXP: 0,
-            playerLevel: 1,
-            selectedPersona: null,
-            completedQuests: [],
-            earnedBadges: [],
-            characterCreated: false,
-            academyName: '',
-            learningGoal: ''
-        };
+        function updateLocalStorage() {
+            let xp = localStorage.getItem('XP') ? parseInt(localStorage.getItem('XP')) : 0;
+            let level = localStorage.getItem('Level') ? parseInt(localStorage.getItem('Level')) : 1;
+            let characterCreated = localStorage.getItem('CharacterCreated') ? localStorage.getItem('CharacterCreated') === 'true' : false;
 
-        // Load saved game state
-        function loadGameState() {
-            const saved = localStorage.getItem('botAcademyState');
-            if (saved) {
-                gameState = {...gameState, ...JSON.parse(saved)};
-                updateDisplay();
-            }
-        }
+            // Example updates
+            localStorage.setItem('XP', xp + 10);
+            localStorage.setItem('Level', level + 1);
+            localStorage.setItem('CharacterCreated', true);
 
-        // Save game state
-        function saveGameState() {
-            localStorage.setItem('botAcademyState', JSON.stringify(gameState));
-        }
-
-        // Update display elements
-        function updateDisplay() {
-            document.getElementById('player-xp').textContent = gameState.playerXP;
-            document.getElementById('player-level').textContent = gameState.playerLevel;
-            document.getElementById('badges-earned').textContent = gameState.earnedBadges.length;
-            
-            // Update level-based unlocks
-            updateCampusAreas();
-            updateQuestAvailability();
-            updateEarnedBadges();
-        }
-
-        // Navigation
-        function showPanel(panelName) {
-            // Hide all panels
-            const panels = document.querySelectorAll('.content-panel');
-            panels.forEach(panel => panel.classList.remove('active'));
-            
-            // Show selected panel
-            document.getElementById(panelName + '-panel').classList.add('active');
-            
-            // Update active tab
-            const tabs = document.querySelectorAll('.nav-tab');
-            tabs.forEach(tab => tab.classList.remove('active'));
-            event.target.classList.add('active');
-        }
-
-        // Character Creation
-        function selectPersona(persona) {
-            gameState.selectedPersona = persona;
-            
-            // Update visual selection
-            document.querySelectorAll('.persona-card').forEach(card => {
-                card.classList.remove('selected');
-            });
-            event.target.closest('.persona-card').classList.add('selected');
-            
-            saveGameState();
-        }
-
-        function completeCharacterCreation() {
-            const academyName = document.getElementById('academy-name').value;
-            const learningGoal = document.getElementById('learning-goal').value;
-            
-            if (!gameState.selectedPersona) {
-                alert('Please select a learning persona first!');
-                return;
-            }
-            
-            if (!academyName.trim()) {
-                alert('Please enter your Academy name!');
-                return;
-            }
-
-            gameState.academyName = academyName;
-            gameState.learningGoal = learningGoal;
-            gameState.characterCreated = true;
-            
-            // Award XP and badge
-            addXP(100);
-            earnBadge('first-steps');
-            
-            alert(`Welcome to Bot Academy, ${academyName}! You've earned 100 XP and the "First Steps" badge!`);
-            
-            saveGameState();
-        }
-
-        // XP and Level System
-        function addXP(amount) {
-            const oldLevel = gameState.playerLevel;
-            gameState.playerXP += amount;
-            
-            // Calculate new level
-            if (gameState.playerXP >= 1000) gameState.playerLevel = 10;
-            else if (gameState.playerXP >= 600) gameState.playerLevel = 8;
-            else if (gameState.playerXP >= 300) gameState.playerLevel = 5;
-            else if (gameState.playerXP >= 150) gameState.playerLevel = 3;
-            else if (gameState.playerXP >= 100) gameState.playerLevel = 2;
-            
-            // Level up animation and notification
-            if (gameState.playerLevel > oldLevel) {
-                const levelDisplay = document.getElementById('player-level');
-                levelDisplay.classList.add('level-up');
-                setTimeout(() => levelDisplay.classList.remove('level-up'), 600);
-                
-                setTimeout(() => {
-                    alert(`🎉 LEVEL UP! You reached Level ${gameState.playerLevel}! New areas may be unlocked!`);
-                }, 700);
-            }
-            
-            updateDisplay();
-            saveGameState();
+            alert('LocalStorage updated: XP = ' + localStorage.getItem('XP') + ', Level = ' + localStorage.getItem('Level') + ', Character Created = ' + localStorage.getItem('CharacterCreated'));
         }
 
         // Badge System
@@ -893,5 +797,9 @@
             loadGameState();
         };
     </script>
+</head>
+<body>
+    <h1>Welcome to the Bot Academy Classroom</h1>
+    <button onclick="updateLocalStorage()">Update XP, Level, and Character Status</button>
 </body>
 </html>
