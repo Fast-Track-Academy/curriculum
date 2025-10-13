@@ -641,6 +641,161 @@
 
             alert('LocalStorage updated: XP = ' + localStorage.getItem('XP') + ', Level = ' + localStorage.getItem('Level') + ', Character Created = ' + localStorage.getItem('CharacterCreated'));
         }
+
+        // Badge System
+        function earnBadge(badgeId) {
+            if (!gameState.earnedBadges.includes(badgeId)) {
+                gameState.earnedBadges.push(badgeId);
+                
+                const badgeElement = document.getElementById('badge-' + badgeId);
+                if (badgeElement) {
+                    badgeElement.classList.remove('not-earned');
+                    badgeElement.classList.add('earned', 'badge-earned');
+                    
+                    setTimeout(() => {
+                        badgeElement.classList.remove('badge-earned');
+                    }, 800);
+                }
+                
+                updateDisplay();
+                saveGameState();
+            }
+        }
+
+        function updateEarnedBadges() {
+            gameState.earnedBadges.forEach(badgeId => {
+                const badgeElement = document.getElementById('badge-' + badgeId);
+                if (badgeElement) {
+                    badgeElement.classList.remove('not-earned');
+                    badgeElement.classList.add('earned');
+                }
+            });
+        }
+
+        // Campus Areas
+        function updateCampusAreas() {
+            const areas = [
+                { id: 'research-lab', level: 3, xp: 150 },
+                { id: 'bot-workshop', level: 5, xp: 300 },
+                { id: 'innovation-studio', level: 8, xp: 600 },
+                { id: 'hall-of-fame', level: 10, xp: 1000 }
+            ];
+            
+            areas.forEach(area => {
+                const element = document.getElementById(area.id);
+                if (gameState.playerXP >= area.xp) {
+                    element.classList.remove('locked');
+                }
+            });
+        }
+
+        function enterArea(areaId) {
+            if (areaId === 'central-hub') {
+                alert('🏛️ Welcome to the Central Hub! This is your home base where your Bot Academy journey begins. Here you can access tutorials, track progress, and plan your quests!');
+            } else {
+                const areaElement = document.getElementById(areaId);
+                if (areaElement && !areaElement.classList.contains('locked')) {
+                    const areaNames = {
+                        'research-lab': 'Research Lab',
+                        'bot-workshop': 'Bot Builder Workshop', 
+                        'innovation-studio': 'Innovation Studio',
+                        'hall-of-fame': 'Hall of Fame'
+                    };
+                    alert(`🌟 Welcome to the ${areaNames[areaId]}! You've unlocked this advanced area. New tools and challenges await!`);
+                } else {
+                    alert('🔒 This area is still locked. Complete more quests to gain access!');
+                }
+            }
+        }
+
+        // Quest System
+        function updateQuestAvailability() {
+            const quests = [
+                { id: 1, prerequisite: 'character-created' },
+                { id: 2, prerequisite: 1 },
+                { id: 3, prerequisite: 2 },
+                { id: 4, prerequisite: 3 }
+            ];
+            
+            quests.forEach(quest => {
+                const questCard = document.getElementById('quest-' + quest.id);
+                const questButton = questCard.querySelector('.quest-button');
+                
+                let available = false;
+                if (quest.prerequisite === 'character-created') {
+                    available = gameState.characterCreated;
+                } else {
+                    available = gameState.completedQuests.includes(quest.prerequisite);
+                }
+                
+                if (available && !gameState.completedQuests.includes(quest.id)) {
+                    questCard.classList.remove('locked');
+                    questCard.classList.add('available');
+                    questButton.disabled = false;
+                    questButton.textContent = 'Start Quest';
+                } else if (gameState.completedQuests.includes(quest.id)) {
+                    questCard.classList.remove('locked', 'available');
+                    questCard.classList.add('completed');
+                    questButton.disabled = true;
+                    questButton.textContent = 'Completed!';
+                }
+            });
+        }
+
+        function startQuest(questId) {
+            const questData = {
+                1: { name: 'The First Companion', xp: 100, badges: ['companion-awakener', 'ai-whisperer'] },
+                2: { name: 'The Personality Mirror', xp: 150, badges: ['code-wizard'] },
+                3: { name: 'The Life Assistant', xp: 200, badges: ['api-master', 'debug-detective'] },
+                4: { name: 'The Knowledge Creator', xp: 300, badges: ['lightning-creator', 'world-changer', 'master-creator'] }
+            };
+            
+            const quest = questData[questId];
+            
+            // Simulate quest progress
+            let progress = 0;
+            const progressBar = document.getElementById(`quest-${questId}-progress`);
+            const questButton = document.querySelector(`#quest-${questId} .quest-button`);
+            
+            questButton.textContent = 'In Progress...';
+            questButton.disabled = true;
+            
+            const progressInterval = setInterval(() => {
+                progress += 20;
+                progressBar.style.width = progress + '%';
+                
+                if (progress >= 100) {
+                    clearInterval(progressInterval);
+                    completeQuest(questId, quest);
+                }
+            }, 800);
+        }
+
+        function completeQuest(questId, quest) {
+            gameState.completedQuests.push(questId);
+            addXP(quest.xp);
+            
+            // Earn badges
+            quest.badges.forEach(badge => earnBadge(badge));
+            
+            // Update quest display
+            const questCard = document.getElementById('quest-' + questId);
+            questCard.classList.remove('available');
+            questCard.classList.add('completed');
+            
+            const questButton = questCard.querySelector('.quest-button');
+            questButton.textContent = 'Completed!';
+            
+            alert(`🎉 Quest Complete! "${quest.name}" finished! You earned ${quest.xp} XP and ${quest.badges.length} badge(s)!`);
+            
+            saveGameState();
+            updateQuestAvailability();
+        }
+
+        // Initialize the game
+        window.onload = function() {
+            loadGameState();
+        };
     </script>
 </head>
 <body>
